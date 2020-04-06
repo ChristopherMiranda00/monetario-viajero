@@ -3,7 +3,7 @@
 ---
 
 ##### Integrantes:
-1. *[Christopher Luis Miranda Vanegas]* - *[A01022676]* - *[Campus Santa Fe]*
+1. *Christopher Luis Miranda Vanegas* - *A01022676* - *Campus Santa Fe*
 
 
 ---
