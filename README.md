@@ -1,4 +1,4 @@
-# Tarea *[3]*. *[Técnicas de diseño de algoritmos]*
+# Tarea *3*. *Técnicas de diseño de algoritmos*
 
 ---
 
