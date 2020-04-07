@@ -1,0 +1,4 @@
+compiler: gcc
+language: cpp
+script:
+    - cd sources
