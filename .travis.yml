@@ -2,3 +2,5 @@ compiler: gcc
 language: cpp
 script:
     - cd sources
+    - g++ prueba.cpp -std=c++17 -o prueba
+    - ./prueba
