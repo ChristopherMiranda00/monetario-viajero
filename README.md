@@ -37,7 +37,8 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 ## 2. Solución
 ##### Problema del Sistema Monetario
-El código del sistema monetario, monetario.cpp, tiene definido un arreglo del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución a un vector. El resultado es la cantidad ingresada a evaluar, y abajo el cambio con e número de monedas utilizadas con el valor de moneda. 
+El código del sistema monetario, monetario.cpp, tiene definido un arreglo del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución a un vector. El resultado es la cantidad ingresada a evaluar, y abajo el cambio con el número de monedas utilizadas con el valor de la moneda. Este algoritmo tiene una complejidad O(n).
+
 ##### Problema del Viajante
 
 
