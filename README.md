@@ -36,13 +36,23 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 ```
 
 ## 2. Solución
+##### Problema del Sistema Monetario
+El código del sistema monetario, monetario.cpp, tiene definido un arreglo del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución a un vector. El resultado es la cantidad ingresada a evaluar, y abajo el cambio con e número de monedas utilizadas con el valor de moneda. 
+##### Problema del Viajante
 
-*[Incluya aquí una explicación de la solución implementada]*
 
 ### 2.1 Pasos a seguir para utilizar la aplicación
 
-*[Incluya aquí una guía paso a paso para poder utilizar la aplicación, desde la clonación del repositorio, la compilación del código hasta la ejecución de los ejemplos para visualizar los resultados.]*
+##### Problema Sistema Monetario
+1. Mediante la terminal, navegar a la carpeta [sources](../sources)
+2. Correr el comando: `g++ -o monetario.cpp -std=c++17`
+3. Correr el comando: `./monetario`
+##### Problema del Viajero
+1. Mediante la terminal, navegar a la carpeta [sources](../sources)
+2. Correr el comando: `g++ -o viajero.cpp -std=c++17`
+3. Correr el comando: `./viajero`
 
 ## 3. Referencias
+> http://www.lcc.uma.es/~av/Libro/CAP4.pdf
+> https://ocw.ehu.eus/pluginfile.php/9410/mod_resource/content/1/03_Algoritmos_Voraces/03_Algoritmos_Voraces.pdf
 
-*[Incluya aquí las referencias a sitios de interés y cualquier otra información que haya utilizado para realizar la actividad y que le puedan ser de utilidad a otras personas que quieran usarlo como referencia]*
