@@ -51,7 +51,7 @@ void darCambio(int monedas[], int cantidad, int size)
     int total=0;
     int i=0;
     int counterMon=0;
-    while(total<cantidad && i<size{ 
+    while(total<cantidad && i<size){ 
         while(total + monedas[i]<=cantidad){
             total+=monedas[i];
             counterMon++;
