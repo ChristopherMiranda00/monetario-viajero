@@ -44,14 +44,14 @@ void imprimirSol(vector<Solucion> sol, int cantidad)
     @param tamaño del arreglo
     @return void 
 */
-void darCambio(int monedas[], int cantidad, int tamaño)
+void darCambio(int monedas[], int cantidad, int size)
 {
     vector <Solucion> solucion;
     Solucion sol;
     int total=0;
     int i=0;
     int counterMon=0;
-    while(total<cantidad && i<tamaño){ 
+    while(total<cantidad && i<size{ 
         while(total + monedas[i]<=cantidad){
             total+=monedas[i];
             counterMon++;
