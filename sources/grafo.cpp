@@ -19,7 +19,7 @@ struct grafo {
 };
 
 //declaraciones
-typedef struct grafo label_t;
+typedef struct grafo etiqueta;
   
 void dijkstram( int, int **, int, int );
  
@@ -34,7 +34,30 @@ void dijkstram( int, int **, int, int );
       Nota: https://stackoverflow.com/questions/2893129/what-does-mean-in-c 
       porque no entendí el **A
 */
-void dikstram (int N, int **A, int a, int b){
+void dikstram (int N, int **A, int a, int b)
+{
+    graf *Flags;
+    int i,i0,j,peso;
+    int *camino; //arreglo con el camino minimo 
+
+    if((Flags=new etiqueta[N] == NULL)){ //crea dinamicamente arreglo de flags
+        return;
+    }
+
+    for ( i = 0; i < N; i++ ) {// inicializa las flags del nodo
+      Flags[i].nro = i;
+      if ( i != a ) {
+         Flags[i].prev = -1;	// no tiene prev
+         Flags[i].peso = -1;	
+         Flags[i].yaEsta = 0;
+      }
+      else {
+         Flags[i].prev = -1;	// no tiene prev
+         Flags[i].peso = 0;		//cost0 del nodo vo a si mismo es cero 
+         Flags[i].yaEsta = 0;
+      }
+   }
+
 
 
 }// end disktram
