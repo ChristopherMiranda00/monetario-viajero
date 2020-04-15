@@ -32,7 +32,6 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 - / 			        # Raíz del repositorio
     - README.md			# Archivo con la información general de la actividad (este archivo)
     - sources  			# Códigos fuente con la solución
-    - examples			# Archivos de ejemplo que pueden utilizarse para verificar que la solución funciona.
 ```
 
 ## 2. Solución
@@ -56,4 +55,6 @@ El código del sistema monetario, monetario.cpp, tiene definido un arreglo del v
 ## 3. Referencias
 > http://www.lcc.uma.es/~av/Libro/CAP4.pdf
 > https://ocw.ehu.eus/pluginfile.php/9410/mod_resource/content/1/03_Algoritmos_Voraces/03_Algoritmos_Voraces.pdf
-
+> https://www.includehelp.com/cpp-tutorial/dijkstras-algorithm.aspx
+> https://es.wikipedia.org/wikiAnexo:Ejemplo_de_Algoritmo_de_Dijkstra
+> https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
