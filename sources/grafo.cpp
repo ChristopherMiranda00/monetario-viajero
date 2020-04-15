@@ -2,9 +2,7 @@
    Christopher Luis Miranda Vanegas 
    Problema 4:Dado un grafo g conexo y ponderado y dado uno de sus vértices v0, 
    encontrar el ciclo Hamiltoniano de coste mínimo que comienza y termina en v0.
-
 */
-
 #include <iostream>
 #include <iomanip>
 #include <list>
@@ -13,9 +11,30 @@ using namespace std;
 /* 
    Estructura donde se define el número de nodo, coste total, y el nodo previo
 */
-struct label {
+struct grafo {
    int nro;	//numero del nodo 
    int prev;	//nodo previo -1 para el nodo inicial )
    int peso;	//peso 
    int yaEsta;	
 };
+
+//declaraciones
+typedef struct grafo label_t;
+  
+void dijkstram( int, int **, int, int );
+ 
+/*
+   void dikstram: calculara el coste minimo con la matriz de adyacencia del grafo
+   con los nodos N, del nodo inicial a al nodo final b
+   @param int N: número de nodos del grafo
+   @param int **A: apuntador a la matriz de adyaciencia
+   @param int a: nodo inicial vo
+   @param int b: nodo final vf
+   @return void
+      Nota: https://stackoverflow.com/questions/2893129/what-does-mean-in-c 
+      porque no entendí el **A
+*/
+void dikstram (int N, int **A, int a, int b){
+
+
+}// end disktram
