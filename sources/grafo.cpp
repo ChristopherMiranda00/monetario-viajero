@@ -36,14 +36,14 @@ void dijkstram( int, int **, int, int );
 */
 void dikstram (int N, int **A, int a, int b)
 {
-    graf *Flags;
+    etiqueta *Flags;
     int i,marca,j,peso;
     int *camino; //arreglo con el camino minimo 
 
-    if((Flags=new etiqueta[N] == NULL)){ //crea dinamicamente arreglo de flags
+    if((Flags = new etiqueta[N]) == NULL){ //crea dinamicamente arreglo de flags
         return;
     }
-
+       
     for ( i = 0; i < N; i++ ) {// inicializa las flags del nodo
       Flags[i].nro = i;
       if ( i != a ) {
