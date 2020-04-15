@@ -37,7 +37,7 @@ void dijkstram( int, int **, int, int );
 void dikstram (int N, int **A, int a, int b)
 {
     graf *Flags;
-    int i,i0,j,peso;
+    int i,marca,j,peso;
     int *camino; //arreglo con el camino minimo 
 
     if((Flags=new etiqueta[N] == NULL)){ //crea dinamicamente arreglo de flags
@@ -57,6 +57,27 @@ void dikstram (int N, int **A, int a, int b)
          Flags[i].yaEsta = 0;
       }
    }
+   while(1){ // mientras que existan nodos no marcados
+    peso=-1;
+    marca=-1;
+    for(i=0;i<N;i++){
+        if(Flags[i].yaEsta ==0 && Flags[i].peso >=0){
+            if(peso ==-1){
+                peso=Flags[i].peso;
+                marca=i;
+            }else if(Flags[i].peso <= peso){
+                peso= Flags[i].peso;
+                marca=1;
+            }// end else if
+        }// end if
+    }//end for
+    if(marca ==-1){ //termina si ya no hay nodos
+        cout<<"Ya se han analizado todos los nodos "<<endl;
+        break;
+    }
+    cout<< " Nodo a analizar: " <<marca << endl;
+
+   }//end while
 
 
 
