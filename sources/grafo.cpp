@@ -12,7 +12,7 @@ using namespace std;
    Estructura donde se define el número de nodo, coste total, y el nodo previo
 */
 struct grafo {
-   int nro;	//numero del nodo 
+   int nodo;	//numero del nodo 
    int prev;	//nodo previo -1 para el nodo inicial )
    int peso;	//peso 
    int yaEsta;	
@@ -34,7 +34,7 @@ void dijkstram( int, int **, int, int );
       Nota: https://stackoverflow.com/questions/2893129/what-does-mean-in-c 
       porque no entendí el **A
 */
-void dikstram (int N, int **A, int a, int b)
+void dijkstram (int N, int **A, int a, int b)
 {
     etiqueta *Flags;
     int i,marca,j,peso;
@@ -45,7 +45,7 @@ void dikstram (int N, int **A, int a, int b)
     }
        
     for ( i = 0; i < N; i++ ) {// inicializa las flags del nodo
-      Flags[i].nro = i;
+      Flags[i].nodo = i;
       if ( i != a ) {
          Flags[i].prev = -1;	// no tiene prev
          Flags[i].peso = -1;	
@@ -57,6 +57,7 @@ void dikstram (int N, int **A, int a, int b)
          Flags[i].yaEsta = 0;
       }
    }
+
    while(1){ // mientras que existan nodos no marcados
     peso=-1;
     marca=-1;
@@ -68,7 +69,7 @@ void dikstram (int N, int **A, int a, int b)
             }
             else if(Flags[i].peso <= peso){
                 peso= Flags[i].peso;
-                marca=1;
+                marca=i;
             }// end else if
         }// end if
     }//end for
@@ -77,6 +78,7 @@ void dikstram (int N, int **A, int a, int b)
         cout<<"Ya se han analizado todos los nodos "<<endl;
         break;
     }
+
     cout<< "---- Nodo a analizar: " <<marca << "----" <<endl;
 
    //este for es para que se actualizen los pesos si hay prevs del nodo encontrado
@@ -105,8 +107,9 @@ void dikstram (int N, int **A, int a, int b)
        if(Flags[i].peso==-1){
           cout<<"Peso -1, infinito";
        }else{
-          cout<< Flags[i].prev;
+          cout<< Flags[i].peso;
        }
+       cout << ", " << Flags[i].prev ;
        if(Flags[i].yaEsta==1){
           cout<< ", x] "<<endl;
        } else{
@@ -120,7 +123,7 @@ void dikstram (int N, int **A, int a, int b)
    int longi = 2;
    i=b;
    while((i=Flags[i].prev)!= a){
-      long++;
+      longi++;
       if((camino =new int[longi])==NULL){
          return;
       }
@@ -143,14 +146,12 @@ void dikstram (int N, int **A, int a, int b)
    }
     cout<< "\n  Costo total: " << Flags[b].peso <<endl;
 
-
-
-
 }// end disktram
 
 int main(){
    int noNodos=0; // cantidad total de los nodos
-   int i,j, **A;
+   int i,j, **A;// matriz
+
     if(( A = new int*[noNodos] ) == NULL ){
       return 1;
     }
@@ -159,8 +160,62 @@ int main(){
           return 1;
        }
     }
-    
+    for(i=0;i<8;i++){ // en este caso es 8 pero se podría cambiar
+      for(j=0;j<8;j++){
+         A[i][j]=0;
+      }
+    }
+    //Matriz de adyaciencia
+    A[0][1] = 16;
+   A[0][2] = 10;
+   A[0][3] = 5;
+ 
+   A[1][0] = 16;
+   A[1][2] = 2;
+   A[1][5] = 4;
+   A[1][6] = 6;
+   
+   A[2][0] = 10;
+   A[2][1] = 2;
+   A[2][3] = 4;
+   A[2][4] = 10;
+   A[2][5] = 12;
+ 
+   A[3][0] = 5;
+   A[3][2] = 4;
+   A[3][4] = 15;
+ 
+   A[4][2] = 10;
+   A[4][3] = 15;
+   A[4][5] = 3;
+   A[4][7] = 5;
+ 
+   A[5][1] = 4;
+   A[5][2] = 12;
+   A[5][4] = 3;
+   A[5][6] = 8;
+   A[5][7] = 16;
+ 
+   A[6][1] = 6;
+   A[6][5] = 8;
+   A[6][7] = 7;
+ 
+   A[7][4] = 5;
+   A[7][5] = 16;
+   A[7][6] = 7; 
+   
+   //para Imprimir la matriz
+   cout<< " Matriz de adyaciencia \n "<<endl;
+   for(i=0;i<8;i++){ 
+      for(j=0;j<8;j++){
+         cout<< setw(2)<<A[i][j]<<" "; // set width http://www.c4learn.com/cplusplus/cpp-setw-setting-field-width/
+      }
+      cout<<endl;
+    }
+    cout<<endl;
 
-
+    dijkstram(noNodos ,A,0,4);
+   
    return 0;
+
 }//end of main
