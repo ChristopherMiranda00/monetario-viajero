@@ -114,6 +114,25 @@ void dikstram (int N, int **A, int a, int b)
        cout<< ""<<endl;
     }//end of for 
 
+   // Ahora la ruta del nodo a vo al nodo b vf
+   int longi = 2;
+   i=b;
+   while((i=Flags[i].prev)!= a){
+      long++;
+      if((camino =new int[longi])==NULL){
+         return;
+      }
+      camino[longi-1]=b;
+      i=b;
+      j=0;
+      for(j=1;j<longi;j++){
+         i=Flags[i].prev;
+         camino[longi-1-j]=i;
+      }
+
+   }//end inner while
+   
+
 
 
 
