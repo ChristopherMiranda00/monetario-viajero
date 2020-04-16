@@ -95,6 +95,7 @@ void dikstram (int N, int **A, int a, int b)
          }//if2
       }//if1
    }//end for 
+
    Flags[marca].yaEsta=1;
    cout<<" costo de nodo "<<marca<< " marcado ]"<< endl;
 
@@ -113,6 +114,7 @@ void dikstram (int N, int **A, int a, int b)
        }
        cout<< ""<<endl;
     }//end of for 
+   }//end while
 
    // Ahora la ruta del nodo a vo al nodo b vf
    int longi = 2;
@@ -129,24 +131,36 @@ void dikstram (int N, int **A, int a, int b)
          i=Flags[i].prev;
          camino[longi-1-j]=i;
       }
-
-   }//end inner while
-   
-
-
-
-
-
-
-
-
    }//end while
+   
+   cout<<"-----------------------------------------------------------"<<endl;
+   cout<<"\n Ruta más corta entre el nodo "<<a<< " y el nodo "<<b<<":"<<endl;
+   for(i=0;i<longi;i++){
+      cout<< camino[i];
+      if(i<longi-1){
+         cout<<" - ";
+      }
+   }
+    cout<< "\n  Costo total: " << Flags[b].peso <<endl;
+
 
 
 
 }// end disktram
 
 int main(){
+   int noNodos=0; // cantidad total de los nodos
+   int i,j, **A;
+    if(( A = new int*[noNodos] ) == NULL ){
+      return 1;
+    }
+    for(i=0;i<noNodos;i++){
+       if((A[i]=new int[noNodos])==NULL){
+          return 1;
+       }
+    }
+    
+
 
    return 0;
 }//end of main
