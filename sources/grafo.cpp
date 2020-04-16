@@ -64,8 +64,9 @@ void dikstram (int N, int **A, int a, int b)
         if(Flags[i].yaEsta ==0 && Flags[i].peso >=0){
             if(peso ==-1){
                 peso=Flags[i].peso;
-                marca=i;
-            }else if(Flags[i].peso <= peso){
+                marca=i;  
+            }
+            else if(Flags[i].peso <= peso){
                 peso= Flags[i].peso;
                 marca=1;
             }// end else if
@@ -76,6 +77,26 @@ void dikstram (int N, int **A, int a, int b)
         break;
     }
     cout<< " Nodo a analizar: " <<marca << endl;
+
+    for(i=0;i<N;i++){
+       cout<<i<< ": [ ";
+       if(Flags[i].peso==-1){
+          cout<<"Peso -1, infinito";
+       }else{
+          cout<< Flags[i].prev;
+       }
+       if(Flags[i].yaEsta==1){
+          cout<< ", x] "<<endl;
+       } else{
+          cout<<"j"<< endl;
+       }
+    }
+
+
+
+
+
+
 
    }//end while
 
