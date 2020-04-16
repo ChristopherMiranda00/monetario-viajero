@@ -72,12 +72,33 @@ void dikstram (int N, int **A, int a, int b)
             }// end else if
         }// end if
     }//end for
+
     if(marca ==-1){ //termina si ya no hay nodos
         cout<<"Ya se han analizado todos los nodos "<<endl;
         break;
     }
-    cout<< " Nodo a analizar: " <<marca << endl;
+    cout<< "---- Nodo a analizar: " <<marca << "----" <<endl;
 
+   //este for es para que se actualizen los pesos si hay prevs del nodo encontrado
+   // y después lo marca como yaEsta
+   for(i=0;i<N;i++){
+      if(A[marca][i]>0){
+         //si el costo total + la suma del costo del enlace del nodo marca al counter i
+         // es menor al del nodo i ( o si es -1), se debe de actualizar
+         if(Flags[i].peso==-1 || Flags[marca].peso + A[marca][i] < Flags[i].peso){
+            if(Flags[marca].peso + A[marca][i] < Flags[i].peso){
+               cout<<" [ mejorando costo de nodo "<<i<<" ]"<<endl;
+            Flags[i].peso =Flags[marca].peso + A[marca][i];
+            Flags[i].prev=marca;
+            cout<<" costo de nodo "<<i<< "desde nodo "<<marca<<": "<<Flags[i].peso<<endl;
+            }//if3
+         }//if2
+      }//if1
+   }//end for 
+   Flags[marca].yaEsta=1;
+   cout<<" costo de nodo "<<marca<< " marcado ]"<< endl;
+
+   // este for verificará los costes 
     for(i=0;i<N;i++){
        cout<<i<< ": [ ";
        if(Flags[i].peso==-1){
@@ -90,7 +111,9 @@ void dikstram (int N, int **A, int a, int b)
        } else{
           cout<<"j"<< endl;
        }
-    }
+       cout<< ""<<endl;
+    }//end of for 
+
 
 
 
@@ -103,3 +126,8 @@ void dikstram (int N, int **A, int a, int b)
 
 
 }// end disktram
+
+int main(){
+
+   return 0;
+}//end of main
