@@ -4,7 +4,6 @@
     el problema del cambio de dinero consiste en descomponer cualquier cantidad dada M en monedas de 
     ese país utilizando el menor número posible de monedas.
 */
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,7 +11,7 @@ using namespace std;
 /*
     Stuctura Solución 
 */
-struct Solucion{
+struct Cambio{
     int valor; // valor de la moeda
     int cantidad; // cantidad de ese valor de moeda
 };// end Solucion 
@@ -23,7 +22,7 @@ struct Solucion{
     @param int cantidad:la cantidad ingresa
     @return void 
 */
-void imprimirSol(vector<Solucion> sol, int cantidad)
+void imprimirSol(vector<Cambio> sol, int cantidad)
 {   
     cout<<"      "<<endl;
     cout<< "Cantidad ingresada: "<< cantidad<<endl;
@@ -46,8 +45,8 @@ void imprimirSol(vector<Solucion> sol, int cantidad)
 */
 void darCambio(int monedas[], int cantidad, int size)
 {
-    vector <Solucion> solucion;
-    Solucion sol;
+    vector <Cambio> solucion;
+    Cambio sol;
     int total=0;
     int i=0;
     int counterMon=0;
