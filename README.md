@@ -36,9 +36,16 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 ## 2. Solución
 ##### Problema del Sistema Monetario
-El código del sistema monetario, monetario.cpp, tiene definido un arreglo del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución a un vector. El resultado es la cantidad ingresada a evaluar, y abajo el cambio con el número de monedas utilizadas con el valor de la moneda. Cabe recalcar que dicho algoritmo solo funciona con enteros. Este algoritmo tiene una complejidad O(n).
+El problema del quiz 3 planteaba el siguiente enunciado: Suponiendo que el sistema monetario de un país está formado por monedas de valores v1,v2,...,vn, el problema del cambio de dinero consiste en descomponer cualquier cantidad dada M en monedas de ese país utilizando el menor número posible de monedas. 
+
+El código del sistema monetario, monetario.cpp, tiene definido un arreglo ordenado del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución al vector Cambio. El algoritmo elige la moneda de mayor denominación (valor) que no sea mayor a la cantidad restante para obtener el cambio. El resultado es la cantidad ingresada a evaluar, y  el cambio con el número de monedas utilizadas con el valor de la moneda. Cabe recalcar que dicho algoritmo solo funciona con enteros y que la solución óptima depende de las denominaciones de la moneda. Este algoritmo tiene una complejidad O(n).
+
+Ejemplo: Si el arreglo monedas[] tuviera las siguientes denominaciones:1,3,4. Y se buscar obtener el cambio de 6, el algoritmo ávido nos dará la solución (4,1,1), sin embargo la solución óptima sería de (3,3). 
 
 ##### Problema del Viajante
+El problema del quiz 3 planteaba el siguiente enunciado:Se conocen las distancias entre un cierto número de ciudades. Un viajante debe, a partir de una de ellas, visitar cada ciudad exactamente una vez y regresar al punto de partida habiendo recorrido en total la menor distancia posible. Este problema también puede ser enunciado más formalmente como sigue: dado
+un grafo g conexo y ponderado y dado uno de sus vértices v0, encontrar el ciclo Hamiltoniano de coste mínimo que comienza y termina en v0. 
+
 El código del problema del viajante, grafo.cpp, usa el algoritmo de Dijkstra. Dicho algoritmo utiliza un grafo dirigido ponderado de N nodos. El proceso es el siguiente: 
 1. Se inicializan las distancias con un valor infinito ( en este caso -1), ya que estas son desconocidas al principio. 
 2. Se toma a vo como el nodo actual
@@ -48,8 +55,7 @@ El código del problema del viajante, grafo.cpp, usa el algoritmo de Dijkstra. D
 6. Y tomamos como próximo nodo actual el nodo con menor valor de distancia. Y se repite hasta que ya no hayan nodos no marcados. 
 
 Esta solución cuenta con una matriz de adyaciencia, haciendo este algoritmo con un complejidad O(n^2). 
-
-
+ 
 
 ### 2.1 Pasos a seguir para utilizar la aplicación
 
