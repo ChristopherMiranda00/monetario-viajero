@@ -36,9 +36,18 @@ El proyecto debe seguir la siguiente estructura de carpetas:
 
 ## 2. Solución
 ##### Problema del Sistema Monetario
-El código del sistema monetario, monetario.cpp, tiene definido un arreglo del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución a un vector. El resultado es la cantidad ingresada a evaluar, y abajo el cambio con el número de monedas utilizadas con el valor de la moneda. Este algoritmo tiene una complejidad O(n).
+El código del sistema monetario, monetario.cpp, tiene definido un arreglo del valor de las monedas, el cual en el método de 'darCambio' dependiendo de la cantidad ingresada comparará y agregará la solución a un vector. El resultado es la cantidad ingresada a evaluar, y abajo el cambio con el número de monedas utilizadas con el valor de la moneda. Cabe recalcar que dicho algoritmo solo funciona con enteros. Este algoritmo tiene una complejidad O(n).
 
 ##### Problema del Viajante
+El código del problema del viajante, grafo.cpp, usa el algoritmo de Dijkstra. Dicho algoritmo utiliza un grafo dirigido ponderado de N nodos. El proceso es el siguiente: 
+1. Se inicializan las distancias con un valor infinito ( en este caso -1), ya que estas son desconocidas al principio. 
+2. Se toma a vo como el nodo actual
+3. Se hace un recorrido de los nodos adyacentes de vo, de los nodos no marcados. 
+4. Se calcula la distancia del nodo actual con la de sus vecinos, sumando la distancia del nodo vi más la distancia del vo hasta el nodo vi. Si dicha distancia es menor que la distancia almacenada en la estructura y se actualiza con esta distancia. 
+5. El nodo vo se marca.
+6. Y tomamos como próximo nodo actual el nodo con menor valor de distancia. Y se repite hasta que ya no hayan nodos no marcados. 
+Esta solución cuenta con una matriz de adyaciencia, haciendo este algoritmo con un complejidad O(n^2). 
+
 
 
 ### 2.1 Pasos a seguir para utilizar la aplicación
@@ -49,8 +58,8 @@ El código del sistema monetario, monetario.cpp, tiene definido un arreglo del v
 3. Correr el comando: `./monetario`
 ##### Problema del Viajero
 1. Mediante la terminal, navegar a la carpeta [sources](../sources)
-2. Correr el comando: `g++ -o viajero.cpp -std=c++17`
-3. Correr el comando: `./viajero`
+2. Correr el comando: `g++ -o grafo.cpp -std=c++17`
+3. Correr el comando: `./grafo`
 
 ## 3. Referencias
 > http://www.lcc.uma.es/~av/Libro/CAP4.pdf
