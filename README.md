@@ -46,6 +46,7 @@ El código del problema del viajante, grafo.cpp, usa el algoritmo de Dijkstra. D
 4. Se calcula la distancia del nodo actual con la de sus vecinos, sumando la distancia del nodo vi más la distancia del vo hasta el nodo vi. Si dicha distancia es menor que la distancia almacenada en la estructura y se actualiza con esta distancia. 
 5. El nodo vo se marca.
 6. Y tomamos como próximo nodo actual el nodo con menor valor de distancia. Y se repite hasta que ya no hayan nodos no marcados. 
+
 Esta solución cuenta con una matriz de adyaciencia, haciendo este algoritmo con un complejidad O(n^2). 
 
 
