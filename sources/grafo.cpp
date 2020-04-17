@@ -20,9 +20,6 @@ struct grafo {
 
 //declaraciones
 typedef struct grafo etiqueta;
-  
-void dijkstram( int, int **, int, int );
- 
 /*
    void dikstram: calculara el coste minimo con la matriz de adyacencia del grafo
    con los nodos N, del nodo inicial a al nodo final b
@@ -34,17 +31,17 @@ void dijkstram( int, int **, int, int );
       Nota: https://stackoverflow.com/questions/2893129/what-does-mean-in-c 
       porque no entendí el **A
 */
-void dijkstram (int N, int **A, int a, int b)
-{
-    etiqueta *Flags;
-    int i,marca,j,peso;
-    int *camino; //arreglo con el camino minimo 
+void dijkstram( int N, int **A, int a, int b ) {
+ 
+   etiqueta *Flags;
+   int i, marca, j, peso;
+   int *camino; //arreglo con el camino minimo 
 
-    if((Flags = new etiqueta[N]) == NULL){ //crea dinamicamente arreglo de flags
+   if((Flags = new etiqueta[N]) == NULL){ //crea dinamicamente arreglo de flags
         return;
-    }
+      }
        
-    for ( i = 0; i < N; i++ ) {// inicializa las flags del nodo
+   for ( i = 0; i < N; i++ ) {// inicializa las flags del nodo
       Flags[i].nodo = i;
       if ( i != a ) {
          Flags[i].prev = -1;	// no tiene prev
@@ -58,10 +55,10 @@ void dijkstram (int N, int **A, int a, int b)
       }
    }
 
-   while(1){ // mientras que existan nodos no marcados
-    peso=-1;
-    marca=-1;
-    for(i=0;i<N;i++){
+   while ( 1 ) { // mientras que existan nodos no marcados
+      peso = -1;
+      marca = -1;
+      for(i=0;i<N;i++){
         if(Flags[i].yaEsta ==0 && Flags[i].peso >=0){
             if(peso ==-1){
                 peso=Flags[i].peso;
@@ -71,54 +68,53 @@ void dijkstram (int N, int **A, int a, int b)
                 peso= Flags[i].peso;
                 marca=i;
             }// end else if
-        }// end if
-    }//end for
+         }// end if
+      }//end for
 
-    if(marca ==-1){ //termina si ya no hay nodos
-        cout<<"Ya se han analizado todos los nodos "<<endl;
-        break;
-    }
-
-    cout<< "---- Nodo a analizar: " <<marca << "----" <<endl;
-
-   //este for es para que se actualizen los pesos si hay prevs del nodo encontrado
-   // y después lo marca como yaEsta
-   for(i=0;i<N;i++){
-      if(A[marca][i]>0){
-         //si el costo total + la suma del costo del enlace del nodo marca al counter i
-         // es menor al del nodo i ( o si es -1), se debe de actualizar
-         if(Flags[i].peso==-1 || Flags[marca].peso + A[marca][i] < Flags[i].peso){
-            if(Flags[marca].peso + A[marca][i] < Flags[i].peso){
-               cout<<" [ mejorando costo de nodo "<<i<<" ]"<<endl;
-            Flags[i].peso =Flags[marca].peso + A[marca][i];
-            Flags[i].prev=marca;
-            cout<<" costo de nodo "<<i<< "desde nodo "<<marca<<": "<<Flags[i].peso<<endl;
+      if (marca == -1){	//termina si ya no hay nodos
+         cout << "Ya se han analizado todos los nodos " << endl;
+         break;
+      }
+ 
+      cout<< "---- Nodo a analizar: " <<marca << "----" <<endl;
+ 
+      //este for es para que se actualizen los pesos si hay prevs del nodo encontrado
+      // y después lo marca como yaEsta
+      for ( i = 0; i < N; i++ ) {
+         if ( A[marca][i] > 0 ) {
+            //si el costo total + la suma del costo del enlace del nodo marca al counter i
+            // es menor al del nodo i ( o si es -1), se debe de actualizar
+            if ( Flags[i].peso == -1 || Flags[marca].peso + A[marca][i] < Flags[i].peso ) {
+               if ( Flags[marca].peso + A[marca][i] < Flags[i].peso )
+                  cout << "   [ mejorando costo de nodo " << i << " ]" << endl;
+               Flags[i].peso = Flags[marca].peso + A[marca][i];
+               Flags[i].prev = marca;
+               cout << "   coste de nodo " << i << " desde nodo " << marca << ": " << Flags[i].peso << endl;
             }//if3
          }//if2
-      }//if1
-   }//end for 
+      }//end of for
 
-   Flags[marca].yaEsta=1;
-   cout<<" costo de nodo "<<marca<< " marcado ]"<< endl;
-
-   // este for verificará los costes 
-    for(i=0;i<N;i++){
-       cout<<i<< ": [ ";
-       if(Flags[i].peso==-1){
+      Flags[marca].yaEsta = 1;
+      cout << "   [ nodo " << marca << " marcado ]" << endl;
+ 
+      //esto es para verificar los costes
+      for(i=0;i<N;i++){
+         cout<<i<< ": [ ";
+         if(Flags[i].peso==-1){
           cout<<"Peso -1, infinito";
-       }else{
-          cout<< Flags[i].peso;
-       }
-       cout << ", " << Flags[i].prev ;
-       if(Flags[i].yaEsta==1){
-          cout<< ", x] "<<endl;
-       } else{
-          cout<<"j"<< endl;
-       }
-       cout<< ""<<endl;
-    }//end of for 
-   }//end while
-
+         }else{
+            cout<< Flags[i].peso;
+         }
+         cout << ", " << Flags[i].prev ;
+         if(Flags[i].yaEsta==1){
+            cout<< ", x] "<<endl;
+         }else{
+            cout<<"j"<< endl;
+         }
+         cout<< ""<<endl;
+      }// end of for
+   }//end of while
+ 
    // Ahora la ruta del nodo a vo al nodo b vf
    int longi = 2;
    i=b;
@@ -133,9 +129,8 @@ void dijkstram (int N, int **A, int a, int b)
       for(j=1;j<longi;j++){
          i=Flags[i].prev;
          camino[longi-1-j]=i;
-      }
+      }//end of for
    }//end while
-   
    cout<<"-----------------------------------------------------------"<<endl;
    cout<<"\n Ruta más corta entre el nodo "<<a<< " y el nodo "<<b<<":"<<endl;
    for(i=0;i<longi;i++){
@@ -145,11 +140,12 @@ void dijkstram (int N, int **A, int a, int b)
       }
    }
     cout<< "\n  Costo total: " << Flags[b].peso <<endl;
+ 
+   
+}// end dijsktram
 
-}// end disktram
-
-int main(){
-   int noNodos=0; // cantidad total de los nodos
+int main () {
+ int noNodos=8; // cantidad total de los nodos
    int i,j, **A;// matriz
 
     if(( A = new int*[noNodos] ) == NULL ){
@@ -166,7 +162,7 @@ int main(){
       }
     }
     //Matriz de adyaciencia
-    A[0][1] = 16;
+   A[0][1] = 16;
    A[0][2] = 10;
    A[0][3] = 5;
  
@@ -214,8 +210,8 @@ int main(){
     }
     cout<<endl;
 
-    dijkstram(noNodos ,A,0,4);
+    dijkstram(noNodos ,A,1,4);
    
    return 0;
-
-}//end of main
+}
+ 
